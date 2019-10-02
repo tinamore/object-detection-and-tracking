@@ -7,8 +7,8 @@ Uses MobileNet-SSD v2 architecture trained on COCO dataset. Retrieve frozen_infe
 ![Image Detector in Action](images/detector.png)
 
 ## track.py (tracking on video)
-Available trackers = ['BOOSTING', 'MIL', 'KCF','TLD', 'MEDIANFLOW', 'MOSSE', 'CSRT'] 
+Available trackers = ['BOOSTING', 'MIL', 'KCF','TLD', 'MEDIANFLOW', 'MOSSE', 'CSRT'].
 
 ## kalmanfilter.py (tracking on video)
-Tracker uses Kalman Filter
+Tracker uses Kalman Filter.
 
