@@ -1,9 +1,8 @@
 import sys
 import cv2
 from random import randint
-#from dataPath import DATA_PATH
 
-trackerTypes = ['BOOSTING', 'MIL', 'KCF','TLD', 'MEDIANFLOW', 'GOTURN', 'MOSSE', 'CSRT']
+trackerTypes = ['BOOSTING', 'MIL', 'KCF','TLD', 'MEDIANFLOW', 'MOSSE', 'CSRT']
 
 def createTrackerByName(trackerType):
   # Create a tracker based on tracker name
@@ -39,7 +38,7 @@ if __name__ == '__main__':
   for t in trackerTypes:
       print(t)
 
-  trackerType = "GOTURN"
+  trackerType = "CSRT"
 
   # Set video to load
   filename = "videos/cycle.mp4"
@@ -67,11 +66,7 @@ if __name__ == '__main__':
   # Select the bounding boxes
   bboxes = [(471, 250, 66, 159), (349, 232, 69, 102)]
   # print('Selected bounding boxes {}'.format(bboxes))
-
-  # You can also select bounding boxes. Just uncomment the following code snippet
-  ## OpenCV's selectROI function doesn't work for selecting multiple objects in Python
-  ## So we will call this function in a loop till we are done selecting all objects
-
+  
   #====================UNCOMMENT THIS FOR SELECTING BOUNDING BOX=============#
   # while True:
   #   # draw bounding boxes over objects
@@ -89,17 +84,6 @@ if __name__ == '__main__':
   #
   # print('Selected bounding boxes {}'.format(bboxes))
   #====================UNCOMMENT THIS FOR SELECTING BOUNDING BOX=============#
-
-  ## Initialize MultiTracker
-  # There are two ways you can initialize multitracker
-  # 1. tracker = cv2.MultiTracker("CSRT")
-  # All the trackers added to this multitracker
-  # will use CSRT algorithm as default
-  # 2. tracker = cv2.MultiTracker()
-  # No default algorithm specified
-
-  # Initialize MultiTracker with tracking algo
-  # Specify tracker type
 
   # Create MultiTracker object
   multiTracker = cv2.MultiTracker_create()
