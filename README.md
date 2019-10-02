@@ -10,5 +10,5 @@ Uses MobileNet-SSD v2 architecture trained on COCO dataset. Retrieve frozen_infe
 Available trackers = ['BOOSTING', 'MIL', 'KCF','TLD', 'MEDIANFLOW', 'MOSSE', 'CSRT'].
 
 ## kalmanfilter.py (tracking on video)
-Tracker uses Kalman Filter.
+Tracker uses Kalman Filter with HOG person detector.
 
