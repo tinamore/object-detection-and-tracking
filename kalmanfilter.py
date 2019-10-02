@@ -56,39 +56,11 @@ if __name__ == '__main__' :
   # Variable for storing frames
   frameDisplay = []
   # Initialize Kalman filter.
-  # Internal state has 6 elements (x, y, width, vx, vy, vw)
-  # Measurement has 3 elements (x, y, width ).
-  # Note: Height = 2 x width, so it is not part of the state
-  # or measurement.
   KF = cv2.KalmanFilter(6, 3, 0)
 
-  # Transition matrix is of the form
-  # [
-  #   1, 0, 0, dt, 0,  0,
-  #   0, 1, 0, 0,  dt, 0,
-  #   0, 0, 1, 0,  0,  dt,
-  #   0, 0, 0, 1,  0,  0,
-  #   0, 0, 0, 0,  1,  0,
-  #   0, 0, 0, dt, 0,  1
-  # ]
-  # because
-  # x = x + vx * dt
-  # y = y + vy * dt
-  # w = y + vw * dt
 
-  # vx = vx
-  # vy = vy
-  # vw = vw
   KF.transitionMatrix = cv2.setIdentity(KF.transitionMatrix)
 
-  # Measurement matrix is of the form
-  # [
-  #  1, 0, 0, 0, 0,  0,
-  #  0, 1, 0, 0, 0,  0,
-  #  0, 0, 1, 0, 0,  0,
-  # ]
-  # because we are detecting only x, y and w.
-  # These quantities are updated.
   KF.measurementMatrix = cv2.setIdentity(KF.measurementMatrix)
 
   # Variable to store detected x, y and w
